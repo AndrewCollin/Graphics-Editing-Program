@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import os
 
-path = "/Users/andrewdiep/Comics"
+path = "C:/Users/Syste/Documents/Comics"
 
 def makeDir(name):
     try:
@@ -130,10 +130,11 @@ def crop():
     pb['text'] = "Image processing done"
 def exitButton():
     window.destroy()
+
+
 window = tk.Tk()
 fileName = None
-#window.configure(bg = "grey90")
-window.title("Comic Cropper by Andrew Diep")
+window.title("Cut-It by Andrew Collin")
 graphicFrame = tk.Frame()
 noImage = ImageTk.PhotoImage(Image.open("noImage.png").resize((400,400)))
 imageLabel = tk.Label(graphicFrame, image = noImage)
@@ -154,17 +155,11 @@ titleInput.grid(row = 1, column = 1)
 ccFrame = tk.Frame(window)
 checkBoxFrame = tk.Frame(ccFrame)
 var1, var2, var3, var4, var5, var6 = tk.IntVar(), tk.IntVar(), tk.IntVar(), tk.IntVar(), tk.IntVar(), tk.IntVar()
-c1 = tk.Checkbutton(checkBoxFrame, text = "Webtoons", variable = var1).grid(row=0,column=0, sticky = 'W')
-c2 = tk.Checkbutton(checkBoxFrame, text = "Tapas", variable = var2).grid(row=1,column=0, sticky = 'W')
-c3 = tk.Checkbutton(checkBoxFrame, text = "Instagram", variable = var3).grid(row=2,column=0, sticky = 'W')
-c4 = tk.Checkbutton(checkBoxFrame, text = "Print 10x8", variable = var4).grid(row=0,column=1, sticky = 'W')
-c5 = tk.Checkbutton(checkBoxFrame, text = "Print 7x5", variable = var5).grid(row=1,column=1, sticky = 'W')
-c6 = tk.Checkbutton(checkBoxFrame, text = "print 11x8.5", variable = var6).grid(row=2,column=1, sticky = 'W')
 bottomFrame = tk.Frame(ccFrame)
 cropButton = tk.Button(bottomFrame, text = "Crop!", command = crop, width = 10, height = 5)
-exitButton = tk.Button(bottomFrame, text="Exit", command = exitButton, width = 10, height = 3)
-cropButton.pack(pady = 10)
-exitButton.pack()
+exitButton = tk.Button(bottomFrame, text="Exit", command = exitButton, width = 10, height = 5)
+cropButton.grid(row = 0, column = 0)
+exitButton.grid(row = 0, column = 1)
 bottombFrame = tk.Frame(window)
 pb = tk.Label(bottombFrame,text="", fg = "SpringGreen4")
 pb.pack()
